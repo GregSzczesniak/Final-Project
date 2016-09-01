@@ -4,30 +4,31 @@
     <meta charset="UTF-8">
     <title>Wikto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="font/fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext" rel="stylesheet">
 </head>
 <body>
 	<section class="main-page">
 		<div class="wrapper">
-			<header>
+			<header id="header">
 				<div class="logo"><img src="img/LOGO.jpg" alt="WIKTO"></div>
 				<nav class="menu">
 					<ul class="menu-list">
 						<li class="menu-item menu-item-current">
-							<a class="menu-link">home</a>
+							<a href="" class="menu-link">home</a>
 						</li>
 						<li class="menu-item">
-							<a class="menu-link">projekty</a>
+							<a href="#paintings" data-id="#gallery" class="menu-link paintings-link">obrazy</a>
 						</li>
 						<li class="menu-item">
-							<a class="menu-link">grafiki</a>
+							<a href="#graphics" data-id="#gallery" class="menu-link graphics-link">grafiki</a>
 						</li>
 						<li class="menu-item">
-							<a class="menu-link">obrazy</a>
+							<a href="#projects" data-id="#gallery" class="menu-link projects-link">projekty</a>
 						</li>
 						<li class="menu-item">
-							<a class="menu-link">kontakt</a>
+							<a href="#" class="menu-link">kontakt</a>
 						</li>
 					</ul>
 				</nav>
@@ -37,144 +38,146 @@
 					<button id="btn-close" class="action action-close">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</button>
-					<button id="btn-transform-right" class="action action-close btn-rotateR">
-						<i class="fa fa-repeat" aria-hidden="true"></i>
-					</button>
-					<button id="btn-transform-left" class="action action-close btn-rotateL">
-						<i class="fa fa-undo" aria-hidden="true"></i>
-					</button>
-					<div class="description description-preview"></div>
 				</div>
 			<section id="home" class="home-content">
 				<div class="home-grid">
 					<div class="diamond diamond1">
-						<div class="background-diamond"></div>
+						<div class="background-diamond">
+							<span class="menu-icon brush"><a href="#paintings" data-id="#gallery" class="menu-link paintings-link"><i class="fa fa-paint-brush" aria-hidden="true"></i></a></span>
+						</div>
 					</div>
 					<div class="diamond diamond2">
-						<div class="background-diamond"></div>
+						<div class="background-diamond">
+							<span class="menu-icon pencil"><a href="#graphics" data-id="#gallery" class="menu-link graphics-link"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+						</div>
 					</div>
 					<div class="diamond-big diamond-big1">
-						<div class="background-diamond-big1"></div>
+						<div class="background-diamond-big"></div>
 					</div>
 					<div class="diamond-big diamond-big2">
-						<div class="background-diamond-big2"></div>
+						<div class="background-diamond-big"></div>
 					</div>
 					<div class="diamond diamond3">
-						<div class="background-diamond"></div>
+						<div class="background-diamond">
+							<span class="menu-icon laptop"><a href="#projects" data-id="#gallery" class="menu-link projects-link"><i class="fa fa-laptop" aria-hidden="true"></i></a></span>
+						</div>
 					</div>
 					<div class="diamond diamond4">
-						<div class="background-diamond"></div>
+						<div class="background-diamond">
+							<span class="menu-icon mail"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+						</div>
 					</div>
 					<div class="diamond diamond5">
-						<div class="background-diamond"></div>
+						<div class="background-diamond">
+							<span class="menu-icon home"><a href="#header"><i class="fa fa-home" aria-hidden="true"></i></a></span>
+						</div>
 					</div>
 					<div class="diamond-big diamond-big3">
-						<div class="background-diamond-big3"></div>
+						<div class="background-diamond-big"></div>
 					</div>
 					<div class="diamond-big diamond-big4">
-						<div class="background-diamond-big4"></div>
+						<div class="background-diamond-big"></div>
 						
 					</div>
 				</div>
 			</section>
-			<section id="paintings" class="gallery-content">
-				<div class="icon-section">
-					<span class="icon brush"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
-					<span class="icon pencil"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-					<span class="icon laptop"><i class="fa fa-laptop" aria-hidden="true"></i></span>
-				</div>
-				<div class="grid">
-					<div class="grid-item grid-specific1" data-id="picture">
-						<a href="img/obraz1.jpg" class="img-wrap"><img src="img/obraz1.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
+			<div id="gallery" class="gallery-wrapper">
+				<section id="paintings" class="gallery-content">
+					<div class="icon-section">
+						<span class="icon brush"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+						<span class="icon pencil"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+						<span class="icon laptop"><i class="fa fa-laptop" aria-hidden="true"></i></span>
 					</div>
-					<div class="grid-item grid-specific2" data-id="picture">
-						<a href="img/obraz2.jpg" class="img-wrap"><img src="img/obraz2.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
+					<div class="grid">
+						<div class="grid-item" data-id="picture">
+							<a href="img/obraz1.jpg" class="img-wrap"><img src="img/obraz1.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item" data-id="picture">
+							<a href="img/obraz2.jpg" class="img-wrap"><img src="img/obraz2.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item grid-specific3" data-id="picture">
+							<a href="img/obraz3.jpg" class="img-wrap"><img src="img/obraz3.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item grid-specific4" data-id="picture">
+							<a href="img/obraz4.jpg" class="img-wrap"><img src="img/obraz4.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item grid-specific5" data-id="picture">
+							<a href="img/obraz5.jpg" class="img-wrap"><img src="img/obraz5.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item grid-specific6" data-id="picture">
+							<a href="img/obraz6.jpg" class="img-wrap"><img src="img/obraz6.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item hide" data-id="picture">
+							<a href="img/obraz7.jpg" class="img-wrap"><img src="img/obraz7.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item hide" data-id="picture">
+							<a href="img/obraz8.jpg" class="img-wrap"><img src="img/obraz8.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item hide" data-id="picture">
+							<a href="img/obraz9.jpg" class="img-wrap"><img src="img/obraz9.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item hide" data-id="picture">
+							<a href="img/obraz10.jpg" class="img-wrap"><img src="img/obraz10.jpg" alt="obraz">
+							</a>
+						</div>
 					</div>
-					<div class="grid-item grid-specific3" data-id="picture">
-						<a href="img/obraz3.jpg" class="img-wrap"><img src="img/obraz3.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
+				</section>
+				<section id="graphics" class="gallery-content hide">
+					<div class="icon-section">
+						<span class="icon brush"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+						<span class="icon pencil"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+						<span class="icon laptop"><i class="fa fa-laptop" aria-hidden="true"></i></span>
 					</div>
-					<div class="grid-item grid-specific4" data-id="picture">
-						<a href="img/obraz4.jpg" class="img-wrap"><img src="img/obraz4.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
+					<div class="grid">
+						<div class="grid-item" data-id="picture">
+							<a href="img/grafika1.jpg" class="img-wrap"><img src="img/grafika1.jpg" alt="img01">
+							</a>
+						</div>
+						<div class="grid-item" data-id="graphics">
+							<a href="img/grafika2.jpg" class="img-wrap"><img src="img/grafika2.jpg" alt="img02">
+							</a>
+						</div>
+						<div class="grid-item grid-specific3" data-id="graphics">
+							<a href="img/grafika3.jpg" class="img-wrap"><img src="img/grafika3.jpg" alt="img03">
+							</a>
+						</div>
+						<div class="grid-item grid-specific4" data-id="graphics">
+							<a href="img/grafika4.jpg" class="img-wrap"><img src="img/grafika4.jpg" alt="img04">
+							</a>
+						</div>
+						<div class="grid-item grid-specific5" data-id="graphics">
+							<a href="img/grafika5.jpg" class="img-wrap"><img src="img/grafika5.jpg" alt="img05">
+							</a>
+						</div>
 					</div>
-					<div class="grid-item grid-specific5" data-id="picture">
-						<a href="img/obraz5.jpg" class="img-wrap"><img src="img/obraz5.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
+				</section>
+				<section id="projects" class="gallery-content hide">
+					<div class="icon-section">
+						<span class="icon brush"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+						<span class="icon pencil"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+						<span class="icon laptop"><i class="fa fa-laptop" aria-hidden="true"></i></span>
 					</div>
-					<div class="grid-item grid-specific6" data-id="picture">
-						<a href="img/obraz6.jpg" class="img-wrap"><img src="img/obraz6.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
+					<div class="grid">
+						<div class="grid-item grid-specific1" data-id="project">
+							<a href="img/projekt1.jpg" class="img-wrap"><img src="img/projekt1.jpg" alt="projekt">
+							</a>
+						</div>
 					</div>
-					<div class="grid-item hide" data-id="picture">
-						<a href="img/obraz7.jpg" class="img-wrap"><img src="img/obraz7.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-					<div class="grid-item hide" data-id="picture">
-						<a href="img/obraz8.jpg" class="img-wrap"><img src="img/obraz8.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-					<div class="grid-item hide" data-id="picture">
-						<a href="img/obraz9.jpg" class="img-wrap"><img src="img/obraz9.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-					<div class="grid-item hide" data-id="picture">
-						<a href="img/obraz10.jpg" class="img-wrap"><img src="img/obraz10.jpg" alt="obraz">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-				</div>
-			</section>
-			<section id="graphics" class="gallery-content">
-				<div class="icon-section">
-					<span class="icon brush"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
-					<span class="icon pencil"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-					<span class="icon laptop"><i class="fa fa-laptop" aria-hidden="true"></i></span>
-				</div>
-				<div class="grid">
-					<div class="grid-item grid-specific1" data-id="picture">
-						<a href="img/grafika1.jpg" class="img-wrap"><img src="img/grafika1.jpg" alt="img01">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-					<div class="grid-item grid-specific2" data-id="graphics">
-						<a href="img/grafika2.jpg" class="img-wrap"><img src="img/grafika2.jpg" alt="img02">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-					<div class="grid-item grid-specific3" data-id="graphics">
-						<a href="img/grafika3.jpg" class="img-wrap"><img src="img/grafika3.jpg" alt="img03">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-					<div class="grid-item grid-specific4" data-id="graphics">
-						<a href="img/grafika4.jpg" class="img-wrap"><img src="img/grafika4.jpg" alt="img04">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-					<div class="grid-item grid-specific5" data-id="graphics">
-						<a href="img/grafika5.jpg" class="img-wrap"><img src="img/grafika5.jpg" alt="img05">
-							<div class="description description-grid"></div>
-						</a>
-					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 			<footer></footer>
 		</div>
 	</section>
 	<script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 	<script src="js/app.js"></script>
-	<!-- <script src="js/gallery.js" type="text/javascript"></script> -->
 </body>
 </html>
