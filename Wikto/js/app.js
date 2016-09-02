@@ -23,39 +23,103 @@ $(function(){
 		paintLink = $('.paintings-link'),
 		graphLink = $('.graphics-link'),
 		projectLink = $('.projects-link'),
-		home = $('.home'),
+		home = $('.home-link'),
 		diamond = $('.diamond'),
-		diamondBig = $('.diamond-big');
+		contactInfo = $('#contact-diamond'),
+		backgroundContact = $('#background-contact'),
+		contactLink = $('.contact-link'),
+		infoSize = $('.info'),
+		contactClose = $('.contact-close'),
+		cal = 1.9,
+		calB = 12.8,
+		calX = 19;
 
+	scaleFonts();
+	body.addClass('overflowX');
 
-	// home.on('click', function(event){
-	// 	event.preventDefault();
-	// 	var href = $(this).attr('href');
+	function showContactInfo() {
+		contactInfo.addClass('rotate-big');
+		backgroundContact.removeClass('background-set').addClass('background-transform');
+		infoSize.fadeIn('slow');
+	}
 
-	// 	$('body').delay(200).animate({
-	// 		scrollTop: $(href).offset().top
-	// 	}, 1000);
+	function hideContactInfo() {
+		contactInfo.removeClass('rotate-big');
+		backgroundContact.addClass('background-set').removeClass('background-transform');
+		infoSize.fadeOut('slow');
+	}
 
-	// });
-
-
-
-	var cal = 1.9;
-
-	$(window).resize(function(){
+	function scaleFonts() {
 		var sizeD = diamond.width(),
 			sizeI = menuIcons.height(),
 			newSizeI = sizeD / cal;
-
-		// var newSizeI = 
-		console.log("wymiar rombu ", sizeD);
-		console.log("wymiar ikony ", sizeI);
-		console.log("stosunek ", cal);
-		console.log("nowy wymiar ikony ", newSizeI);
-
+			sizeD_big = contactInfo.width(),
+			sizeFont = infoSize.height(),
+			newSizeB = sizeD_big / calB;
+			sizeX = contactClose.width(),
+			newSizeX = sizeD_big / calX;
 
 		menuIcons.css('font-size', newSizeI);
+		infoSize.css('font-size', newSizeB);
+		contactClose.css('font-size', newSizeX);
+	}
+
+	function showGallery(icon, exposition) {
+		icons.css('color', 'rgba(0, 0, 0, .6)');
+		icon.css('color','rgba(0, 0, 0, 1)');
+		gallery.addClass('hide');
+		exposition.removeClass('hide').addClass('fade');
+	}
+
+	$(window).resize(function(){
+		scaleFonts();
 	})
+
+	// diamond.on('click', function(event){
+	// 	event.preventDefault();
+	// 	var href = $(this).find('a').attr('href');
+		
+	// 	$('body').animate({
+	// 		scrollTop: $(href).offset().top
+	// 	}, 1000);
+	// })
+
+	home.on('click', function(event){
+		event.preventDefault();
+		var href = $(this).attr('href');
+
+		$('body').animate({
+			scrollTop: $(href).offset().top
+		}, 1000);
+	})
+
+	contactLink.on('click', function(event){
+		event.preventDefault();
+		var href = $(this).attr('href');
+
+		$('body').animate({
+			scrollTop: $(href).offset().top - 100
+		}, 1000);
+		showContactInfo();
+	})
+
+	contactClose.on('click', function(event){
+		event.preventDefault();
+		var href = $(this).attr('href');
+
+		$('body').animate({
+			scrollTop: $(href).offset().top
+		}, 1000);
+		hideContactInfo();
+	})
+
+	$(document).on("click", function () {
+    	hideContactInfo();
+	});
+
+	$(".contact-link").on("click", function (event) {
+    	event.stopPropagation();
+	});
 
 	paintLink.on('click', function(event){
 		event.preventDefault();
@@ -116,8 +180,6 @@ $(function(){
 		}
 	});
 
-	body.addClass('overflowX');
-
 	item.on('click', function(){
 		var $this = $(this),
 			$that = $this.siblings('menu-item');
@@ -126,14 +188,14 @@ $(function(){
 		$this.addClass('menu-item-current');
 	})
 
-	gridItem.on('click', function(e){
-		e.preventDefault();
+	gridItem.on('click', function(event){
+		event.preventDefault();
 		var thisPic = $(this).find('img'),
 			picSrc = thisPic.attr('src');
 
 		// grid.addClass('grid-loaded');
 		body.addClass('overflow');
-		currentPic.attr('src', picSrc).addClass('original animate');
+		currentPic.attr('src', picSrc).addClass('original animate width-pic');
 		itemView.addClass('preview-open preview-image-loaded');
 
 	})
@@ -144,16 +206,9 @@ $(function(){
 
 	btn.on('click', function(){
 		itemView.removeClass('preview-open preview-image-loaded');
-		currentPic.attr('src', '').removeClass('animate grow');
+		currentPic.attr('src', '').removeClass('animate grow width-pic');
 		body.removeClass('overflow');
 	})
-
-	function showGallery(icon, exposition) {
-		icons.css('color', 'rgba(0, 0, 0, .6)');
-		icon.css('color','rgba(0, 0, 0, 1)');
-		gallery.addClass('hide');
-		exposition.removeClass('hide').addClass('fade');
-	}
 
 	pencil.on('click', function(){
 		showGallery(pencil, graphics);
@@ -166,27 +221,6 @@ $(function(){
 	laptop.on('click', function(){
 		showGallery(laptop, projects);
 	})
-
-	// pencil.on('click', function(){
-	// 	icons.css('color', 'rgba(0, 0, 0, .6)');
-	// 	pencil.css('color','rgba(0, 0, 0, 1)');
-	// 	gallery.addClass('hide');
-	// 	graphics.removeClass('hide').addClass('fade');
-	// })
-
-	// brush.on('click', function(){
-	// 	icons.css('color', 'rgba(0, 0, 0, .6)');
-	// 	brush.css('color','rgba(0, 0, 0, 1)');
-	// 	gallery.addClass('hide');
-	// 	paintings.removeClass('hide').addClass('fade');
-	// })
-
-	// laptop.on('click', function(){
-	// 	icons.css('color', 'rgba(0, 0, 0, .6)');
-	// 	laptop.css('color','rgba(0, 0, 0, 1)');
-	// 	gallery.addClass('hide');
-	// 	projects.removeClass('hide').addClass('fade');
-	// })
 
 })
 
