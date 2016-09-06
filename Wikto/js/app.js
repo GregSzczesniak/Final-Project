@@ -48,7 +48,6 @@ $(function(){
 			event.preventDefault();
 			var href = $(this).find('a').attr('href');
 
-			console.log(href);
 			$('html body').animate({
 				scrollTop: $(href).offset().top
 			}, 1000);
