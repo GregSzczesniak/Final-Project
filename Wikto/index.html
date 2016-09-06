@@ -16,7 +16,7 @@
 				<nav class="menu">
 					<ul class="menu-list">
 						<li class="menu-item menu-item-current">
-							<a href="#top" class="menu-link home-link">home</a>
+							<a href="#top" class="menu-link home-up">home</a>
 						</li>
 						<li class="menu-item">
 							<a href="#paintings" data-id="#gallery" class="menu-link paintings-link">obrazy</a>
@@ -28,7 +28,7 @@
 							<a href="#projects" data-id="#gallery" class="menu-link projects-link">projekty</a>
 						</li>
 						<li class="menu-item">
-							<a href="#contact-diamond" class="menu-link contact-link">kontakt</a>
+							<a href="#contact-diamond" data-id="#gallery" class="menu-link contact-link">kontakt</a>
 						</li>
 					</ul>
 				</nav>
@@ -41,14 +41,14 @@
 				</div>
 			<section id="home" class="home-content">
 				<div class="home-grid">
-					<div class="diamond diamond1">
+					<div class="diamond diamond-gallery diamond1">
 						<div class="background-diamond">
-							<span class="menu-icon brush"><a href="#paintings" data-id="#gallery" class="menu-link paintings-link"><i class="fa fa-paint-brush" aria-hidden="true"></i></a></span>
+							<span class="menu-icon brush"><a href="#paintings" data-id="#gallery" class="menu-link"><i class="fa fa-paint-brush" aria-hidden="true"></i></a></span>
 						</div>
 					</div>
-					<div class="diamond diamond2">
+					<div class="diamond diamond-gallery diamond2">
 						<div class="background-diamond">
-							<span class="menu-icon pencil"><a href="#graphics" data-id="#gallery" class="menu-link graphics-link"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+							<span class="menu-icon pencil"><a href="#graphics" data-id="#gallery" class="menu-link"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
 						</div>
 					</div>
 					<div class="diamond-big diamond-big1">
@@ -57,9 +57,9 @@
 					<div class="diamond-big diamond-big2">
 						<div class="background-diamond-big"></div>
 					</div>
-					<div class="diamond diamond3">
+					<div class="diamond diamond-gallery diamond3">
 						<div class="background-diamond">
-							<span class="menu-icon laptop"><a href="#projects" data-id="#gallery" class="menu-link projects-link"><i class="fa fa-laptop" aria-hidden="true"></i></a></span>
+							<span class="menu-icon laptop"><a href="#projects" data-id="#gallery" class="menu-link"><i class="fa fa-laptop" aria-hidden="true"></i></a></span>
 						</div>
 					</div>
 					<div class="diamond diamond4">
@@ -67,7 +67,7 @@
 							<span class="menu-icon mail"><a href="#contact-diamond" class="menu-link contact-link"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
 						</div>
 					</div>
-					<div class="diamond diamond5">
+					<div class="diamond diamond-gallery diamond5">
 						<div class="background-diamond">
 							<span class="menu-icon home"><a href="#header" class="home-link"><i class="fa fa-home" aria-hidden="true"></i></a></span>
 						</div>
@@ -78,9 +78,6 @@
 					<div id="contact-diamond" class="diamond-big diamond-big4">
 						<div id="background-contact" class="background-diamond-big background-set">
 							<p class="info">jeśli chcesz kupić mój obraz, plakat lub podjąć współpracę graficzną, napisz do mnie wmastyna@gmail.com</p>
-							<a href="#top" class="contact-close">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
 						</div>
 					</div>
 				</div>
@@ -109,11 +106,19 @@
 							<a href="img/obraz4.jpg" class="img-wrap"><img src="img/obraz4.jpg" alt="obraz">
 							</a>
 						</div>
-						<div class="grid-item grid-specific5" data-id="picture">
+						<div class="grid-item grid-specific2" data-id="picture">
 							<a href="img/obraz5.jpg" class="img-wrap"><img src="img/obraz5.jpg" alt="obraz">
 							</a>
 						</div>
-						<div class="grid-item grid-specific6" data-id="picture">
+						<div class="grid-item grid-specific2" data-id="picture">
+							<a href="img/obraz9.jpg" class="img-wrap"><img src="img/obraz9.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item grid-specific4" data-id="picture">
+							<a href="img/obraz10.jpg" class="img-wrap"><img src="img/obraz10.jpg" alt="obraz">
+							</a>
+						</div>
+						<div class="grid-item" data-id="picture">
 							<a href="img/obraz6.jpg" class="img-wrap"><img src="img/obraz6.jpg" alt="obraz">
 							</a>
 						</div>
@@ -125,16 +130,8 @@
 							<a href="img/obraz8.jpg" class="img-wrap"><img src="img/obraz8.jpg" alt="obraz">
 							</a>
 						</div>
-						<div class="grid-item hide" data-id="picture">
-							<a href="img/obraz9.jpg" class="img-wrap"><img src="img/obraz9.jpg" alt="obraz">
-							</a>
-						</div>
-						<div class="grid-item hide" data-id="picture">
-							<a href="img/obraz10.jpg" class="img-wrap"><img src="img/obraz10.jpg" alt="obraz">
-							</a>
-						</div>
 					</div>
-					<span class="icon icon-up"><a href="#top" class="home-link"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a></span>
+					<span class="icon icon-up"><a href="#top" class="home-up"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a></span>
 				</section>
 				<section id="graphics" class="gallery-content hide">
 					<div class="icon-section">
@@ -143,28 +140,28 @@
 						<span class="icon laptop"><i class="fa fa-laptop" aria-hidden="true"></i></span>
 					</div>
 					<div class="grid">
-						<div class="grid-item" data-id="picture">
-							<a href="img/grafika1.jpg" class="img-wrap"><img src="img/grafika1.jpg" alt="img01">
+						<div class="grid-item" data-id="graphics">
+							<a href="img/grafika1.jpg" class="img-wrap"><img src="img/grafika1.jpg" alt="grafika">
 							</a>
 						</div>
 						<div class="grid-item" data-id="graphics">
-							<a href="img/grafika2.jpg" class="img-wrap"><img src="img/grafika2.jpg" alt="img02">
+							<a href="img/grafika2.jpg" class="img-wrap"><img src="img/grafika2.jpg" alt="grafika">
 							</a>
 						</div>
 						<div class="grid-item grid-specific3" data-id="graphics">
-							<a href="img/grafika3.jpg" class="img-wrap"><img src="img/grafika3.jpg" alt="img03">
+							<a href="img/grafika3.jpg" class="img-wrap"><img src="img/grafika3.jpg" alt="grafika">
 							</a>
 						</div>
 						<div class="grid-item grid-specific4" data-id="graphics">
-							<a href="img/grafika4.jpg" class="img-wrap"><img src="img/grafika4.jpg" alt="img04">
+							<a href="img/grafika4.jpg" class="img-wrap"><img src="img/grafika4.jpg" alt="grafika">
 							</a>
 						</div>
 						<div class="grid-item grid-specific5" data-id="graphics">
-							<a href="img/grafika5.jpg" class="img-wrap"><img src="img/grafika5.jpg" alt="img05">
+							<a href="img/grafika5.jpg" class="img-wrap"><img src="img/grafika5.jpg" alt="grafika">
 							</a>
 						</div>
 					</div>
-					<span class="icon icon-up"><a href="#top" class="home-link"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a></span>
+					<span class="icon icon-up"><a href="#top" class="home-up"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a></span>
 				</section>
 				<section id="projects" class="gallery-content hide">
 					<div class="icon-section">
@@ -178,10 +175,13 @@
 							</a>
 						</div>
 					</div>
-					<span class="icon icon-up"><a href="#top" class="home-link"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a></span>
+					<span class="icon icon-up"><a href="#top" class="home-up"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a></span>
 				</section>
 			</div>
-			<footer></footer>
+			<footer>
+				<p class="copyright">All rights reserved &copy; 2016</p>
+				<!-- Projekt wykonał: Grzegorz Szcześniak -->
+			</footer>
 		</div>
 	</section>
 	<script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>

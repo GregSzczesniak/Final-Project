@@ -1,16 +1,10 @@
 @import 'font/scss/font-awesome.scss';
 
-/*Effects*/
-
-
-
 /*Breakpoints*/
 
 $phoneXS: "(max-width: 387px)";
 $phoneM: "(max-width: 450px)";
 $phoneXL: "(max-width: 566px)";
-$tabletSm: "(min-width: 567px) and (max-width: 767px)";
-$tablet: "(min-width: 768px) and (max-width: 1023px)" ;
 $MSXSdevices: "(max-width: 1023px)";
 $desktop: "(min-width: 1024px) and (max-width: 1439px)";
 $desktopXL: "(max-width: 1440px)";
@@ -45,7 +39,7 @@ a {
 
 
 .main-page {
-	background: url('../img/tloL.jpg') center center no-repeat;
+	background: url('../img/tlo.jpg') center center no-repeat;
 	background-size: cover;
 	height: auto;
 	width: 100%;
@@ -196,7 +190,7 @@ header {
 /*HOME SECTION*/
 
 .home-content {
-	padding: 0 20px 60px 20px;
+	padding: 0 20px 20px 20px;
 	height: auto;
 }
 
@@ -405,38 +399,12 @@ header {
 	background-size: cover;
 }
 
-.contact-close {
-	position: absolute;
-    top: 29%;
-    right: 71%;
-    font-size: 1.5rem;
-	background-color: transparent;
-	border: none;
-	color: rgba(0, 0, 0, 0.7);
-	outline: none;
-	cursor: pointer;
-
-	&:hover {
-		color: rgba(0, 0, 0, 0.9);
-	}
-}
-
 .diamond-big4 {
 	position: absolute;
 	top: 65%;
 	left: 32%;
 	overflow: hidden;
 	transition: all 1s ease;
-
-	// &:hover {
-	// 	transform: scale(1.5) rotate(-225deg);
-	// 	transition: transform 1s;
-
-	// 	.background-diamond-big {
-	// 		// background: none;
-			
-	// 	}
-	// }
 
 	.background-diamond-big {
 		position: absolute;
@@ -551,6 +519,14 @@ header {
 	}
 }
 
+.grid-specific2 {
+	width: 315px;
+
+	@media #{$phoneM} {
+		width: 70vw;
+	}
+}
+
 .grid-specific3 {
 	width: 280px;
 
@@ -567,13 +543,6 @@ header {
 	}
 }
 
-.grid-specific5 {
-	width: 315px;
-
-	@media #{$phoneM} {
-		width: 70vw;
-	}
-}
 
 .grid-item-current {
 	opacity: 0 !important;
@@ -748,4 +717,11 @@ header {
   	position: relative;
   	left: 0;
   }
+}
+
+.copyright {
+	font-size: 1.2rem;
+	color: rgba(0, 0, 0, 0.6);
+	text-align: right;
+	letter-spacing: 2px;
 }

@@ -23,19 +23,37 @@ $(function(){
 		paintLink = $('.paintings-link'),
 		graphLink = $('.graphics-link'),
 		projectLink = $('.projects-link'),
+		paintDiamond = $('.paintings-m-link'),
+		graphicDiamond = $('.graphics-m-link'),
+		projectDiamond = $('.projects-m-link'),
 		home = $('.home-link'),
+		iconUp = $('.home-up'),
 		diamond = $('.diamond'),
+		diamondGallery = $('.diamond-gallery'),
 		contactInfo = $('#contact-diamond'),
 		backgroundContact = $('#background-contact'),
 		contactLink = $('.contact-link'),
 		infoSize = $('.info'),
-		contactClose = $('.contact-close'),
 		cal = 1.9,
-		calB = 12.8,
-		calX = 19;
+		calB = 12.8;
 
 	scaleFonts();
+	slideToSection(diamondGallery);
+	brush.css('color', 'rgba(0, 0, 0, 1)');
 	body.addClass('overflowX');
+
+
+	function slideToSection(element) {
+		element.on('click', function(event){
+			event.preventDefault();
+			var href = $(this).find('a').attr('href');
+
+			console.log(href);
+			$('html body').animate({
+				scrollTop: $(href).offset().top
+			}, 1000);
+		})
+	}
 
 	function showContactInfo() {
 		contactInfo.addClass('rotate-big');
@@ -56,12 +74,9 @@ $(function(){
 			sizeD_big = contactInfo.width(),
 			sizeFont = infoSize.height(),
 			newSizeB = sizeD_big / calB;
-			sizeX = contactClose.width(),
-			newSizeX = sizeD_big / calX;
 
 		menuIcons.css('font-size', newSizeI);
 		infoSize.css('font-size', newSizeB);
-		contactClose.css('font-size', newSizeX);
 	}
 
 	function showGallery(icon, exposition) {
@@ -75,50 +90,47 @@ $(function(){
 		scaleFonts();
 	})
 
-	// diamond.on('click', function(event){
-	// 	event.preventDefault();
-	// 	var href = $(this).find('a').attr('href');
-		
-	// 	$('body').animate({
-	// 		scrollTop: $(href).offset().top
-	// 	}, 1000);
-	// })
+	/*Menu effects*/
 
-	home.on('click', function(event){
-		event.preventDefault();
-		var href = $(this).attr('href');
+	item.on('click', function(){
+		var $this = $(this);
 
-		$('body').animate({
-			scrollTop: $(href).offset().top
-		}, 1000);
-	})
+		item.removeClass('menu-item-current');
+		$this.addClass('menu-item-current');
+	});
+
+	/*Diamonds Menu*/
 
 	contactLink.on('click', function(event){
 		event.preventDefault();
-		var href = $(this).attr('href');
+		var href = $(this).attr('href'),
+			li = $(this).closest('li');
 
 		$('body').animate({
 			scrollTop: $(href).offset().top - 100
 		}, 1000);
 		showContactInfo();
-	})
+		item.removeClass('menu-item-current');
+		li.addClass('menu-item-current');
+	});
+		/* Wherever click, hide contact info if is active */
 
-	contactClose.on('click', function(event){
+	$(document).on("click", function () {
+    	hideContactInfo();
+	});
+
+	$(".contact-link").on("click", function(event) {
+    	event.stopPropagation();
+	});
+		/* Up to the top */
+
+	iconUp.on('click', function(event){
 		event.preventDefault();
 		var href = $(this).attr('href');
 
 		$('body').animate({
 			scrollTop: $(href).offset().top
 		}, 1000);
-		hideContactInfo();
-	})
-
-	$(document).on("click", function () {
-    	hideContactInfo();
-	});
-
-	$(".contact-link").on("click", function (event) {
-    	event.stopPropagation();
 	});
 
 	paintLink.on('click', function(event){
@@ -180,13 +192,7 @@ $(function(){
 		}
 	});
 
-	item.on('click', function(){
-		var $this = $(this),
-			$that = $this.siblings('menu-item');
-
-		item.removeClass('menu-item-current');
-		$this.addClass('menu-item-current');
-	})
+	/* Show the picture */
 
 	gridItem.on('click', function(event){
 		event.preventDefault();
@@ -198,29 +204,31 @@ $(function(){
 		currentPic.attr('src', picSrc).addClass('original animate width-pic');
 		itemView.addClass('preview-open preview-image-loaded');
 
-	})
+	});
 
 	currentPic.on('click', function(){
 		$(this).toggleClass('grow');
-	})
+	});
 
 	btn.on('click', function(){
 		itemView.removeClass('preview-open preview-image-loaded');
 		currentPic.attr('src', '').removeClass('animate grow width-pic');
 		body.removeClass('overflow');
-	})
+	});
+
+	/* Show specific gallery */
 
 	pencil.on('click', function(){
 		showGallery(pencil, graphics);
-	})
+	});
 
 	brush.on('click', function(){
 		showGallery(brush, paintings);
-	})
+	});
 
 	laptop.on('click', function(){
 		showGallery(laptop, projects);
-	})
+	});
 
 })
 
