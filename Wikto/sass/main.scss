@@ -1,10 +1,10 @@
-@import 'font/scss/font-awesome.scss';
 
 /*Breakpoints*/
 
 $phoneXS: "(max-width: 387px)";
 $phoneM: "(max-width: 450px)";
 $phoneXL: "(max-width: 566px)";
+$tablet: "(max-width: 768px)";
 $MSXSdevices: "(max-width: 1023px)";
 $desktop: "(min-width: 1024px) and (max-width: 1439px)";
 $desktopXL: "(max-width: 1440px)";
@@ -46,17 +46,8 @@ a {
 	padding: 40px 0;
 	background-attachment: fixed;
 
-	@media #{$desktop} {
-		background: url('../img/tloL.jpg') center center no-repeat;
-		background-size: cover;
-		height: auto;
-		width: 100%;
-		padding: 40px 0;
-		background-attachment: fixed;
-	}
-
-	@media #{$MSXSdevices} {
-		background: url('../img/tloSM.jpg') center center no-repeat;
+	@media #{$tablet} {
+		background: url('../img/tloXS.jpg') center center no-repeat;
 		background-size: cover;
 		height: auto;
 		width: 100%;
@@ -671,14 +662,16 @@ header {
 
 
 .showPic {
-	// width: calc(40vw - 50px);
-    // max-height: calc(75vh - 50px);
     transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
     cursor: zoom-in;
 }
 
 .width-pic {
 	width: calc(40vw - 50px);
+
+	@media #{$phoneXL} {
+		width: calc(80vw - 20px);
+	}
 }
 
 .hide {
@@ -690,6 +683,10 @@ header {
     padding-top: 20px;
     transition: all 2s ease-in;
     cursor: zoom-out;
+
+    @media #{$phoneXL} {
+		width: calc(100vw - 20px);
+	}
 }
 
 .overflow {
@@ -702,8 +699,8 @@ header {
 }
 
 .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
 }
 
 @keyframes fade {
@@ -715,7 +712,7 @@ header {
   to {
   	opacity: 1;
   	position: relative;
-  	left: 0;
+  	left: 0%;
   }
 }
 

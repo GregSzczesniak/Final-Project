@@ -48,7 +48,7 @@ $(function(){
 			event.preventDefault();
 			var href = $(this).find('a').attr('href');
 
-			$('html body').animate({
+			$('html,body').animate({
 				scrollTop: $(href).offset().top
 			}, 1000);
 		})
@@ -85,6 +85,13 @@ $(function(){
 		exposition.removeClass('hide').addClass('fade');
 	}
 
+	function hidePicture() {
+		itemView.removeClass('preview-open preview-image-loaded');
+		currentPic.attr('src', '').removeClass('animate original grow width-pic');
+		body.removeClass('overflow');
+	}
+
+
 	$(window).resize(function(){
 		scaleFonts();
 	})
@@ -105,29 +112,39 @@ $(function(){
 		var href = $(this).attr('href'),
 			li = $(this).closest('li');
 
-		$('body').animate({
+		$('html,body').animate({
 			scrollTop: $(href).offset().top - 100
 		}, 1000);
 		showContactInfo();
 		item.removeClass('menu-item-current');
 		li.addClass('menu-item-current');
 	});
-		/* Wherever click, hide contact info if is active */
+		/* Wherever click, hide contact info and picture prevwiew if is active */
 
-	$(document).on("click", function () {
+	$(document).on('click', function () {
     	hideContactInfo();
+    	hidePicture();
 	});
 
-	$(".contact-link").on("click", function(event) {
+	$('.contact-link').on('click', function(event) {
     	event.stopPropagation();
 	});
+
+	gridItem.on('click', function(event) {
+    	event.stopPropagation();
+	});
+
+	currentPic.on('click', function(event) {
+		event.stopPropagation();
+	});
+
 		/* Up to the top */
 
 	iconUp.on('click', function(event){
 		event.preventDefault();
 		var href = $(this).attr('href');
 
-		$('body').animate({
+		$('html,body').animate({
 			scrollTop: $(href).offset().top
 		}, 1000);
 	});
@@ -139,13 +156,13 @@ $(function(){
 
 		if ($(href).is(':hidden')) {
 
-			$('body').delay(200).animate({
+			$('html,body').delay(200).animate({
 				scrollTop: $(id).offset().top
 			}, 1000);
 			showGallery(brush, paintings);
 		} else {
 
-			$('body').delay(200).animate({
+			$('html,body').delay(200).animate({
 				scrollTop: $(href).offset().top
 			}, 1000);
 		}
@@ -158,13 +175,13 @@ $(function(){
 
 		if ($(href).is(':hidden')) {
 			
-			$('body').delay(200).animate({
+			$('html,body').delay(200).animate({
 				scrollTop: $(id).offset().top
 			}, 1000);
 			showGallery(pencil, graphics);
 		} else {
 
-			$('body').delay(200).animate({
+			$('html,body').delay(200).animate({
 				scrollTop: $(href).offset().top
 			}, 1000);
 			
@@ -178,13 +195,13 @@ $(function(){
 
 		if ($(href).is(':hidden')) {
 			
-			$('body').delay(200).animate({
+			$('html,body').delay(200).animate({
 				scrollTop: $(id).offset().top
 			}, 1000);
 			showGallery(laptop, projects);
 		} else {
 
-			$('body').delay(200).animate({
+			$('html,body').delay(200).animate({
 				scrollTop: $(href).offset().top
 			}, 1000);
 			
@@ -210,11 +227,10 @@ $(function(){
 	});
 
 	btn.on('click', function(){
-		itemView.removeClass('preview-open preview-image-loaded');
-		currentPic.attr('src', '').removeClass('animate grow width-pic');
-		body.removeClass('overflow');
+		hidePicture();
 	});
 
+	
 	/* Show specific gallery */
 
 	pencil.on('click', function(){
