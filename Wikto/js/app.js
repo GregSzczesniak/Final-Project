@@ -48,7 +48,7 @@ $(function(){
 			event.preventDefault();
 			var href = $(this).find('a').attr('href');
 
-			$('html,body').animate({
+			$('body,html').animate({
 				scrollTop: $(href).offset().top
 			}, 1000);
 		})
@@ -87,7 +87,7 @@ $(function(){
 
 	function hidePicture() {
 		itemView.removeClass('preview-open preview-image-loaded');
-		currentPic.attr('src', '').removeClass('animate original grow width-pic');
+		currentPic.attr('src', 'img/pusty.png').removeClass('animate original grow width-pic');
 		body.removeClass('overflow');
 	}
 

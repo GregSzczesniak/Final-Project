@@ -15,6 +15,20 @@ $desktopXL: "(max-width: 1440px)";
 
 html { 
 	font-size: 62.5%;
+	background: url('../img/tlo.jpg') no-repeat center center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	height: 100%;
+	-webkit-overflow: hidden;
+
+
+	@media #{$tablet} {
+		background: url('../img/tloXS.jpg') no-repeat bottom center fixed;
+		background-size: cover;
+		-webkit-background-size: cover;
+		height: 100%;
+
+	}
 }
 
 body {
@@ -22,6 +36,11 @@ body {
 	padding: 0;
 	font-family: 'Lato', sans-serif;
 	font-size: 1.6rem;
+	
+
+	height: 100%;
+	// overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -37,24 +56,27 @@ a {
 	}
 }
 
-
 .main-page {
-	background: url('../img/tlo.jpg') center center no-repeat;
-	background-size: cover;
-	height: auto;
-	width: 100%;
-	padding: 40px 0;
-	background-attachment: fixed;
-
-	@media #{$tablet} {
-		background: url('../img/tloXS.jpg') center center no-repeat;
-		background-size: cover;
-		height: auto;
-		width: 100%;
-		padding: 40px 0;
-		background-attachment: fixed;
-	}
+  
 }
+
+// .main-page {
+// 	background: url('../img/tlo.jpg') center center no-repeat;
+// 	background-size: cover;
+// 	height: auto;
+// 	width: 100%;
+// 	padding: 40px 0;
+// 	position: fixed;
+
+// 	@media #{$tablet} {
+// 		background: url('../img/tloXS.jpg') center center no-repeat;
+// 		background-size: cover;
+// 		height: auto;
+// 		width: 100%;
+// 		padding: 40px 0;
+// 		position: fixed;
+// 	}
+// }
 
 .wrapper {
 	max-width: 1070px;
@@ -63,6 +85,7 @@ a {
 }
 
 header {
+	padding-top: 40px;
 	text-align: center;
 	padding-bottom: 30px;
 
@@ -464,7 +487,6 @@ header {
 .icon-up {
 	float: right;
 	color: rgba(0, 0, 0, 0.6);
-	z-index: 1000;
 
 	&:hover {
 		color: rgba(0, 0, 0, 1) !important;
@@ -721,4 +743,9 @@ header {
 	color: rgba(0, 0, 0, 0.6);
 	text-align: right;
 	letter-spacing: 2px;
+	padding-bottom: 20px;
+
+	@media #{$tablet} {
+		color: rgba(255,255,255,0.6);
+	}
 }
